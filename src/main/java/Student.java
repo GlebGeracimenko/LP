@@ -27,4 +27,12 @@ public class Student {
     public void setSrBal(Float srBal) {
         this.srBal = srBal;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", srBal=" + srBal +
+                '}';
+    }
 }

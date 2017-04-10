@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by gleb on 09.04.17.
  */
@@ -10,12 +14,9 @@ public class Main {
         Student levchenko = new Student("Levchenko", 4.6f);
         Student sidorov = new Student("Sidorov", 5.0f);
 
-        System.out.println("Perfect mark in student " + ivanov.getName() + "? " + DiplomaValidator.valid(ivanov));
-        System.out.println("Perfect mark in student " + pupkin.getName() + "? " + DiplomaValidator.valid(pupkin));
-        System.out.println("Perfect mark in student " + vetrov.getName() + "? " + DiplomaValidator.valid(vetrov));
-        System.out.println("Perfect mark in student " + petrov.getName() + "? " + DiplomaValidator.valid(petrov));
-        System.out.println("Perfect mark in student " + levchenko.getName() + "? " + DiplomaValidator.valid(levchenko));
-        System.out.println("Perfect mark in student " + sidorov.getName() + "? " + DiplomaValidator.valid(sidorov));
+        List<Student> studentList = Arrays.asList(ivanov, pupkin, vetrov, petrov, levchenko, sidorov);
+        List<Student> validStudent = studentList.stream().filter(s -> s.getSrBal() >= 4.9f).collect(Collectors.toList());
 
+        System.out.println(Arrays.toString(validStudent.toArray()));
     }
 }
